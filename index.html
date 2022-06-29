@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <title>Chat</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 0;
+        height: 100vh;
+        width: 99%;
+        max-width: 96%;
+    }
+
+    .frend-side{
+        width: 25%;
+        direction: rtl; 
+        height: 79vh;
+        border-left: 1px solid #eee;   
+        line-height: 2.5;
+        font-size: 15px;
+    }
+
+    .frends{
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .head-frend-side{
+        padding: 5% 1%;
+    }
+
+    .title-frend-side{
+        font-size: 25px;
+        /* font-weight: 500; */
+        display: inline-block;
+        padding-right: 50%;
+        transform: translate(40%);
+    }
+
+
+    .search-frend{
+        display: block;
+        width: 90%;
+        background-color: #eee;
+        border: none;
+        padding: 1%;
+        border-radius: 100px;
+        font-size: 15px;
+        text-align:start;
+        padding-right: 15px;
+    }
+
+    .text-input:focus{
+        outline: none;
+    }
+
+    .frend{
+        border-radius: 5px;
+        margin-bottom: 1px;
+        padding: 2%;
+        padding-left: 5%;
+        max-height: 65px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        overflow: hidden;
+        
+    }
+
+    .frend:hover{
+        background-color: #eee;
+    }
+
+    .image{
+        width: 50px;
+        border-radius: 500px;
+        /* transform: translate(5%, 15%); */
+
+    }
+
+    .img-profile{
+        width: 35px;
+    }
+
+    .chat-side{
+        width: 75%;
+        /* overflow: hidden; */
+        height: 99vh;
+        position: relative;
+        overflow-y: scroll;
+        scroll-snap-type: mandatory;
+        
+    }
+
+    
+
+    .head-chat-side{
+        width: 100%;
+        box-shadow: -4px -1px 4px 0px rgba(0, 0, 0, 0.292);
+        height: 6%;
+        min-height: 50px;
+        display: flex;
+        /* justify-content: space-between; */
+        flex-direction: column;
+        position: absolute;
+        z-index: 9;
+        background-color: #fff;
+    }
+
+    .info-chat{
+        /* display: flex; */
+        direction: rtl;
+        text-align: center;
+        position: absolute;
+        right: 1%;
+        top: 10%;
+        /* width: 50%; */
+    }
+
+    .image-chat{
+        /* margin: 5%;     */
+        width: 40px;
+        height: 40px;
+    }
+
+    .name-chat{
+        width: 100px;
+        font-weight: 600;
+        /* line-height: 3.5; */
+        position: absolute;
+        top: 50%;
+        transform: translate(10%, -50%);
+    }
+
+    .call-icons{
+        width: 25%;
+        margin: 1%;
+    }
+
+    .icon-head{
+        margin-left: 5%;
+        fill: #0084ff;
+        stroke:#0084ff;
+        /* padding: 10px; */
+        max-width: 30px;
+    }
+
+    .icon{
+        border-radius: 50px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .icon:hover{
+        background-color: #eee;
+    }
+
+    .bottom-chat{
+        width: 73.7%;
+        direction: rtl;
+        height: 6%;
+        min-height: 50px;
+        position: fixed;
+        bottom: 0%;
+        left: 0%;
+        /* transform: translateY(-20%); */
+        z-index: 9;
+        background-color: #fff;
+    }
+
+    .like-icon{
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 2%;
+    }
+
+    .message-text{
+        width: 81%;
+        height: 65%;
+        border-radius: 50px;
+        border: none;
+        padding:0 10px;
+        transform: translate(0, -50%);
+        overflow: hidden;
+        background-color: #eee;
+        margin: 0 10px;
+        
+    }
+
+    .bottom-chat .icon{
+        margin: 0;
+        margin-top: 10px;
+    }
+    
+    .send-btn{
+        /* background: ;  */
+        border: none; 
+        padding: 0 10px; 
+        border-radius: 50px; 
+        outline: none; 
+        color: #fff;
+        height: 60%;
+        transform: translateY(-55%);
+        background-color:#0084ff;
+        margin-right: 10px;
+
+    }
+
+    .send-icon{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .send-icon path{
+        transform: translateY(-500px);
+    }
+    #messages {
+        list-style-type: none; 
+        margin-top: 6%; 
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .message {
+        padding: 0.5rem 1rem; 
+        display: block;
+        
+        
+    }
+    .message:nth-child(odd) { 
+        direction: rtl;
+        position: relative;
+        text-align: right;
+    }
+    </style>
+  </head>
+  <body>
+    <section class="chat-side">
+        <div class="head-chat-side">
+            <div class="call-icons">
+                <svg class="icon icon-head three-dot-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <circle cx="256" cy="256" r="32"  stroke-miterlimit="10" stroke-width="32"/>
+                    <circle cx="416" cy="256" r="32" stroke-miterlimit="10" stroke-width="32"/>
+                    <circle cx="96" cy="256" r="32"  stroke-miterlimit="10" stroke-width="32"/>
+                </svg>
+                <svg class="icon icon-head camera-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M374.79 308.78L457.5 367a16 16 0 0022.5-14.62V159.62A16 16 0 00457.5 145l-82.71 58.22A16 16 0 00368 216.3v79.4a16 16 0 006.79 13.08z" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+                    <path d="M268 384H84a52.15 52.15 0 01-52-52V180a52.15 52.15 0 0152-52h184.48A51.68 51.68 0 01320 179.52V332a52.15 52.15 0 01-52 52z" stroke-miterlimit="10" stroke-width="32"/>
+                </svg>
+                <svg class="icon icon-head phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M451 374c-15.88-16-54.34-39.35-73-48.76-24.3-12.24-26.3-13.24-45.4.95-12.74 9.47-21.21 17.93-36.12 14.75s-47.31-21.11-75.68-49.39-47.34-61.62-50.53-76.48 5.41-23.23 14.79-36c13.22-18 12.22-21 .92-45.3-8.81-18.9-32.84-57-48.9-72.8C119.9 44 119.9 47 108.83 51.6A160.15 160.15 0 0083 65.37C67 76 58.12 84.83 51.91 98.1s-9 44.38 23.07 102.64 54.57 88.05 101.14 134.49S258.5 406.64 310.85 436c64.76 36.27 89.6 29.2 102.91 23s22.18-15 32.83-31a159.09 159.09 0 0013.8-25.8C465 391.17 468 391.17 451 374z" stroke-miterlimit="5" stroke-width="32"/>
+                </svg>
+            </div>
+            <div class="info-chat">
+                <img class="image-chat image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+                <span class="name-chat">Cs 2020</span>
+            </div>
+        </div>
+        <div id="messages"></div>
+        <!-- <div class="bottom-chat"> -->
+        <form id="form" class="bottom-chat" action="">
+            <button class="send-btn">
+                SEND
+            </button>
+            <input id="input" class="text-input message-text" autocomplete="off" ></input>
+
+            <svg class="icon add-img-icon" viewBox="0 0 36 36" height="35px" width="35px">
+                <path d="M13.5 16.5a2 2 0 100-4 2 2 0 000 4z" fill="#0084ff"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7 12v12a4 4 0 004 4h14a4 4 0 004-4V12a4 4 0 00-4-4H11a4 4 0 00-4 4zm18-1.5H11A1.5 1.5 0 009.5 12v9.546a.25.25 0 00.375.217L15 18.803a6 6 0 016 0l5.125 2.96a.25.25 0 00.375-.217V12a1.5 1.5 0 00-1.5-1.5z" fill="#0084ff"></path>
+            </svg>
+            <svg class="icon GIF-icon" viewBox="0 0 36 36" height="35px" width="35px">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 11a4 4 0 014-4h8c1.067 0 2.035.417 2.753 1.098.517.491 1.151.902 1.866.902H26a4 4 0 014 4v12a4 4 0 01-4 4h-8a3.986 3.986 0 01-2.752-1.098c-.518-.491-1.152-.902-1.866-.902H10a4 4 0 01-4-4V11zm7.865 4.908a1.948 1.948 0 00-1.321-.456c-.461.02-.918.214-1.295.576-.378.363-.65.873-.754 1.457a2.927 2.927 0 00.209 1.708c.236.52.611.915 1.046 1.14a1.87 1.87 0 001.36.152c.454-.122.88-.419 1.195-.868.098-.14.183-.291.253-.451.068-.154-.052-.316-.22-.316H12.85a.85.85 0 010-1.7h2.8c.47 0 .85.38.85.85a4.53 4.53 0 01-.803 2.593c-.527.75-1.277 1.3-2.144 1.534a3.57 3.57 0 01-2.586-.285c-.8-.414-1.43-1.107-1.811-1.947a4.628 4.628 0 01-.335-2.706 4.357 4.357 0 011.25-2.388 3.697 3.697 0 012.398-1.048 3.647 3.647 0 012.472.838.85.85 0 01-1.076 1.317zM22.7 19.6a.25.25 0 01.25-.25h2.75a.85.85 0 000-1.7h-2.75a.25.25 0 01-.25-.25v-1.45a.25.25 0 01.25-.25h3.2a.85.85 0 100-1.7h-4.3a.85.85 0 00-.85.85v6.3a.85.85 0 001.7 0V19.6zm-3.35-4.75a.85.85 0 00-1.7 0v6.3a.85.85 0 001.7 0v-6.3z" fill="#0084ff"></path>
+            </svg>
+           
+        </form>
+    </section>
+    <section class="frend-side">
+        <div class="head-frend-side">
+            <img class="image img-profile" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+
+            <p class="title-frend-side">الدردشة</p>
+            <input class="text-input search-frend" type="text" placeholder=" بحث عن صديق">
+        </div>
+        <div class="frends">
+            <div class="frend">
+                <img class="image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+                <span class="name-frend">Cs 2020</span>
+            </div>
+            <div class="frend">
+                <img class="image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+                <span class="name-frend">Orwa</span>
+            </div>
+            <div class="frend">
+                <img class="image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.6435-1/74431009_2584567924963964_8108417390309539840_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeGz4ZSfDBSVSrh5Ciibsc_8XxU5i3hZrHhfFTmLeFmseMHGJdabcMAcoNiuySo288kmimfzI3EDaRS0om7o8IPa&_nc_ohc=uoRyWirJCKUAX8OpMdx&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.famm9-1.fna&oh=00_AT8_82Ouzv2OGLjG941_5C2bOIltiGhSJeVBArUbX3DUcg&oe=62D20C77" alt="image">
+                <span class="name-frend">حارثة</span>
+            </div>
+            <div class="frend">
+                <img class="image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+
+                <span class="name-frend">Bilal Asi</span>
+            </div>
+            <div class="frend">
+                <img class="image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+
+                <span class="name-frend">The</span>
+            </div>
+            <div class="frend">
+                <img class="image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+
+                <span class="name-frend">ابو المثنى حارث الرحاحلة</span>
+            </div>
+            <div class="frend">
+                <img class="image" src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.15752-9/129981021_304912620755824_1634081444774021440_n.jpg?stp=dst-jpg_p100x100&_nc_cat=111&ccb=1-7&_nc_sid=4de414&_nc_eui2=AeFT38Pb2P9UVZN0T4Wg91w2m8xFA55Te0ebzEUDnlN7R7LqFRXGI51pO1d1dCa1oGmnSelxDAXhhp4Wx4Bno6Ec&_nc_ohc=VY1R6T3czdwAX-oFzOw&_nc_ht=scontent.famm9-1.fna&oh=03_AVKnaYhLfy8pwY7rlnz_mI1Trqzy4XUJCMnew9m0309FSQ&oe=62D27143" alt="image">
+
+                <span class="name-frend">RTX 20</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        var form = document.getElementById('form');
+        var input = document.getElementById('input');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (input.value) {
+            socket.emit('chat message', input.value);
+            input.value = '';
+            }
+        });
+
+        socket.on('chat message', function(msg) {
+            var item = document.createElement('li');
+            item.textContent = msg;
+            let html = `<span class="message">${msg}</span>`
+            messages.insertAdjacentHTML('beforeend', html)
+            // messages.appendChild(item);
+
+            // window.scrollTo(0, document.body.scrollHeight);
+        })
+    </script>
+  </body>
+</html>

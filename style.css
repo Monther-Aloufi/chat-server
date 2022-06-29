@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    padding-bottom: 3rem; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0;
+}
+
+.frend-side{
+    width: 25%;
+    direction: rtl; 
+    height: 85vh;
+    border-left: 1px solid #eee;   
+    line-height: 2.5;
+    font-size: 15px;
+}
+
+.frends{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.head-frend-side{
+    padding: 5% 1%;
+}
+
+.title-frend-side{
+    font-size: 25px;
+    /* font-weight: 500; */
+    display: inline-block;
+    padding-right: 50%;
+    transform: translate(40%);
+}
+
+
+.search-frend{
+    display: block;
+    width: 90%;
+    background-color: #eee;
+    border: none;
+    padding: 1%;
+    border-radius: 100px;
+    font-size: 15px;
+    text-align:start;
+    padding-right: 15px;
+}
+
+.text-input:focus{
+    outline: none;
+}
+
+.frend{
+    border-radius: 5px;
+    margin-bottom: 1px;
+    padding: 2%;
+    padding-left: 5%;
+    max-height: 65px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    overflow: hidden;
+    
+}
+
+.frend:hover{
+    background-color: #eee;
+}
+
+.image{
+    width: 50px;
+    border-radius: 500px;
+    /* transform: translate(5%, 15%); */
+
+}
+
+.img-profile{
+    width: 35px;
+}
+
+.chat-side{
+    width: 75%;
+    /* overflow: hidden; */
+    height: 100vh;
+}
+
+
+
+.head-chat-side{
+    width: 100%;
+    box-shadow: -4px -1px 4px 0px rgba(0, 0, 0, 0.292);
+    height: 6%;
+    min-height: 50px;
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    position: relative;
+}
+
+.info-chat{
+    /* display: flex; */
+    direction: rtl;
+    text-align: center;
+    position: absolute;
+    right: 1%;
+    top: 10%;
+    /* width: 50%; */
+}
+
+.image-chat{
+    /* margin: 5%;     */
+    width: 40px;
+    height: 40px;
+}
+
+.name-chat{
+    width: 100px;
+    font-weight: 600;
+    /* line-height: 3.5; */
+    position: absolute;
+    top: 50%;
+    transform: translate(10%, -50%);
+}
+
+.call-icons{
+    width: 25%;
+    margin: 1%;
+}
+
+.icon-head{
+    margin-left: 5%;
+    fill: #0084ff;
+    stroke:#0084ff;
+    /* padding: 10px; */
+    max-width: 30px;
+}
+
+.icon{
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.icon:hover{
+    background-color: #eee;
+}
+
+.bottom-chat{
+    width: 75%;
+    direction: rtl;
+    height: 6%;
+    min-height: 50px;
+    padding: 0 1%;
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+}
+
+.like-icon{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 2%;
+}
+
+.message-text{
+    width: 87%;
+    height: 65%;
+    border-radius: 50px;
+    border: none;
+    padding:0 10px;
+    transform: translate(0, -31%);
+    overflow: hidden;
+    background-color: #eee;
+    
+}
+
+.bottom-chat .icon{
+    margin: 0;
+    margin-top: 10px;
+}
+
+
+#form {
+    background: rgba(0, 0, 0, 0.15); 
+    padding: 0.25rem;  
+    display: flex; 
+    height: 3rem; 
+    box-sizing: border-box; 
+    backdrop-filter: blur(10px); 
+
+    width: 75%;
+    direction: rtl;
+    height: 6%;
+    min-height: 50px;
+    padding: 0 1%;
+    position: fixed;
+    bottom: 0;
+    left: 0;        
+}
+#input {
+    border: none; 
+    /* padding: 0 1rem;  */
+    /* flex-grow: 1;  */
+    border-radius: 2rem; 
+    /* margin: 0.25rem;  */
+}
+#input:focus {
+    outline: none; 
+}
+#form > button { 
+    background: #333; 
+    border: none; 
+    padding: 0 1rem; 
+    margin: 0.25rem; 
+    border-radius: 3px; 
+    outline: none; 
+    color: #fff; 
+}
+
+#messages {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+}
+#messages > li {
+    padding: 0.5rem 1rem; 
+}
+#messages > li:nth-child(odd) { 
+    background: #efefef; 
+}
